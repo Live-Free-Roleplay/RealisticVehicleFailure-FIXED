@@ -338,10 +338,12 @@ Citizen.CreateThread(function()
 
 			if healthEngineCurrent > cfg.engineSafeGuard+1 then
 				SetVehicleUndriveable(vehicle,false)
+				TriggerEvent('engine-toggle:RPDamage', true)
 			end
 
 			if healthEngineCurrent <= cfg.engineSafeGuard+1 and cfg.limpMode == false then
 				SetVehicleUndriveable(vehicle,true)
+				TriggerEvent('engine-toggle:RPDamage', false)
 			end
 
 			-- If ped spawned a new vehicle while in a vehicle or teleported from one vehicle to another, handle as if we just entered the car
